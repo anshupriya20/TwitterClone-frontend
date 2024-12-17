@@ -16,6 +16,7 @@ const backend_url=import.meta.env.VITE_BACKEND_URL;
 
 
 function App() {
+	console.log(backend_url)
 	const { data: authUser, isLoading } = useQuery({
 		// we use queryKey to give a unique name to our query and refer to it later
 		queryKey: ["authUser"],
