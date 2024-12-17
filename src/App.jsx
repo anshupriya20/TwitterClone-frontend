@@ -16,7 +16,7 @@ const backend_url=import.meta.env.VITE_BACKEND_URL;
 
 
 function App() {
-	console.log(backend_url)
+	// console.log(backend_url)
 	const { data: authUser, isLoading } = useQuery({
 		// we use queryKey to give a unique name to our query and refer to it later
 		queryKey: ["authUser"],
@@ -24,11 +24,13 @@ function App() {
 			try {
 				const res = await fetch(`${backend_url}/api/auth/me`);  //error hai yahan 
 				const data = await res.json();
+				console.log("Completed Line 26");
 				if (data.error) return null;
+				console.log("Completed Line 27");
 				if (!res.ok) {
 					throw new Error(data.error || "Something went wrong");
 				}
-				// console.log("authUser is here:", data);
+				console.log("authUser is here:", data);
 				return data;
 			} catch (error) {
 				throw new Error(error);
